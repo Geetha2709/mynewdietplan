@@ -1,0 +1,455 @@
+{
+  "name": "Project Management: Post-Meeting Action Tracker",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Post-Meeting Action Tracker",
+        "formDescription": "List the task assigned in the meeting with \nDeadline for each",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Name of the member",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Pillar",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "CLT"
+                  },
+                  {
+                    "option": "CFC"
+                  },
+                  {
+                    "option": "SCD"
+                  },
+                  {
+                    "option": "IIPC"
+                  },
+                  {
+                    "option": "SR"
+                  }
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Email Id",
+              "fieldType": "textarea",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Contact Number",
+              "fieldType": "number",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Task 1",
+              "fieldType": "textarea",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Task 1 - Deadline",
+              "fieldType": "date",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Task 2",
+              "fieldType": "textarea"
+            },
+            {
+              "fieldLabel": "Task 2 - Deadline",
+              "fieldType": "date"
+            },
+            {
+              "fieldLabel": "Task 3",
+              "fieldType": "textarea"
+            },
+            {
+              "fieldLabel": "Task 3 - Deadline",
+              "fieldType": "date"
+            },
+            {
+              "fieldLabel": "Doubt or Additional Points for Clarification",
+              "fieldType": "textarea",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        -140,
+        0
+      ],
+      "id": "6fdef29b-c1d4-4c34-a01b-975cf369fa0c",
+      "name": "On form submission1",
+      "webhookId": "078b4259-9214-4df2-b24e-007762582c81"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1hhrJL14SojynlpZrO7nbxA2Zyv4x2WuJtUoQdDXgVAk",
+          "mode": "list",
+          "cachedResultName": "minutes of meeting",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1hhrJL14SojynlpZrO7nbxA2Zyv4x2WuJtUoQdDXgVAk/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1hhrJL14SojynlpZrO7nbxA2Zyv4x2WuJtUoQdDXgVAk/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {
+            "Email": "={{ $json['Email Id'] }}",
+            "Name of the Member ": "={{ $json['Name of the member'] }}",
+            "Pillar": "={{ $json.Pillar }}",
+            "Contact Number": "={{ $json['Contact Number'] }}",
+            "Task 1": "={{ $json['Task 1'] }}",
+            "Task 1 - Deadline": "={{ $json['Task 1 - Deadline'] }}",
+            "Task 2": "={{ $json['Task 2'] }}",
+            "Task 2 - Deadline": "={{ $json['Task 2 - Deadline'] }}",
+            "Task 3": "={{ $json['Task 3'] }}",
+            "Task 3 - Deadline": "={{ $json['Task 3 - Deadline'] }}",
+            "Doubts or Clarification": "={{ $json['Doubt or Additional Points for Clarification'] }}"
+          },
+          "matchingColumns": [
+            "Email"
+          ],
+          "schema": [
+            {
+              "id": "Name of the Member ",
+              "displayName": "Name of the Member ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Pillar",
+              "displayName": "Pillar",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Contact Number",
+              "displayName": "Contact Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Task 1",
+              "displayName": "Task 1",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Task 1 - Deadline",
+              "displayName": "Task 1 - Deadline",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Task 2",
+              "displayName": "Task 2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Task 2 - Deadline",
+              "displayName": "Task 2 - Deadline",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Task 3",
+              "displayName": "Task 3",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Task 3 - Deadline",
+              "displayName": "Task 3 - Deadline",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Doubts or Clarification",
+              "displayName": "Doubts or Clarification",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Name of the member",
+              "displayName": "Name of the member",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email Id",
+              "displayName": "Email Id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Doubt or Additional Points for Clarification",
+              "displayName": "Doubt or Additional Points for Clarification",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "submittedAt",
+              "displayName": "submittedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "formMode",
+              "displayName": "formMode",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        80,
+        0
+      ],
+      "id": "a0b02f30-56ae-418e-85fd-9065d24d2f8f",
+      "name": "Google Sheets",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "jSZsxjfmXQetg3Hx",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=This the task allocated for the candidate , use and analyse the data and draft a mail to the candidate that I have verified and expected to complete the task before deadline\n\nthis is the data :  {{ $json['Name of the Member '] }} ,{{ $json.Pillar }} ,{{ $json['Task 1'] }} ,{{ $json['Task 1 - Deadline'] }} ,{{ $json['Doubts or Clarification'] }}\n\njust return the content for mail , make it brief ",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        380,
+        0
+      ],
+      "id": "4cbb1ec0-86e8-4305-a83b-02a0f22bdfbe",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.0-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        340,
+        220
+      ],
+      "id": "f6ba0b56-8ea9-4e43-8061-23a5ee70ba2c",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "yWnuOnLR2p80U8os",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('On form submission1').item.json['Email Id'] }}",
+        "subject": "Task Coompletion remainder",
+        "emailType": "text",
+        "message": "={{ $json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        740,
+        0
+      ],
+      "id": "ad2e348b-e0f3-490e-8589-f4651317c0fc",
+      "name": "Gmail",
+      "webhookId": "2515e8e2-a70e-4c69-a34b-f2a87c0e1867",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "0Qh3GCO0KKVTMopT",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "calendar": {
+          "__rl": true,
+          "value": "geetha.d.dt@snsgroups.com",
+          "mode": "list",
+          "cachedResultName": "geetha.d.dt@snsgroups.com"
+        },
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1.3,
+      "position": [
+        880,
+        180
+      ],
+      "id": "72f0d5f9-d6fe-4800-887a-57805cce3a2c",
+      "name": "Google Calendar",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "d0jxW4HFGWFfdQ7J",
+          "name": "Google Calendar account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail": {
+      "main": [
+        [
+          {
+            "node": "Google Calendar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "dd746723-c04f-43a8-9538-42a01c433565",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "82638dcc366efc0d3205444e16a0c69e382580648b8655d99059e1392c58c890"
+  },
+  "id": "KDjSg7LygDtcEQLW",
+  "tags": []
+}
